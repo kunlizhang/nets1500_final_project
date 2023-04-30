@@ -12,28 +12,19 @@ public class Client {
 
     private boolean commandLine = false;
 
-    private Browser b;
-
     /**
-     * Creates a client with a name (primarily for the GUI window).
-     * @param name
+     * Creates a client.
      */
-    public Client(String name) {
+    public Client() {
         l = new Lookup();
-        b = new Browser(name, this);
     }
 
     /**
-     * Creates a client with a name and whether or not it is a command line client.
-     * @param name
-     * @param commandLine
+     * Creates a client.
      */
-    public Client(String name, boolean commandLine) {
+    public Client(boolean commandLine) {
         this.commandLine = commandLine;
         l = new Lookup();
-        if (!commandLine) {
-            b = new Browser(name, this);
-        }
     }
 
     /**
@@ -63,8 +54,9 @@ public class Client {
      * Sends a GET request to the server.
      * @param path The path to the resource.
      */
-    public void getResource(String path) {
+    public String getResource(String path) {
         sendRequest("GET " + path);
+        return processResponse();
     }
 
     /**
@@ -78,7 +70,7 @@ public class Client {
     /**
      * Processes the response from the server.
      */
-    private void processResponse() {
+    private String processResponse() {
         String response = in.nextLine();
         if (response.startsWith("200")) {
             String content = "";
@@ -89,23 +81,13 @@ public class Client {
                 }
                 content += line + "\n";
             }
-            if (commandLine) {
-                System.out.println("Content: " + content);
-            } else {
-                b.displayContent(content);
-            }
+            return content;
         } else if (response.startsWith("404")) {
-            if (commandLine) {
-                System.out.println("404 Not Found");
-            } else {
-                b.displayContent("404 Not Found");
-            }
+            return "404 Not Found";
         } else if (response.startsWith("500")) {
-            if (commandLine) {
-                System.out.println("500 Internal Server Error");
-            } else {
-                b.displayContent("500 Internal Server Error");
-            }
+            return "500 Internal Server Error";
+        } else {
+            return "Unknown response";
         }
     }
 
@@ -130,12 +112,13 @@ public class Client {
             System.out.println("Enter a path: ");
             String path = userInput.nextLine();
             getResource(path);
-            processResponse();
+            System.out.println(processResponse());
         }
     }
 
     public static void main(String[] args) {
-        Client c = new Client("client");
+        // Tests the command line based client.
+        Client c = new Client(true);
         c.connect("www.sample.com");
     }
 }
