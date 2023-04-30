@@ -13,7 +13,7 @@ public class Client {
 
     public Client(String name) {
         l = new Lookup();
-        b = new Browser(name, this);
+//        b = new Browser(name, this);
     }
 
     /**
@@ -27,7 +27,7 @@ public class Client {
         try {
             socket = new Socket(servername, port);
             in = new Scanner(socket.getInputStream());
-            out = new PrintWriter(socket.getOutputStream());
+            out = new PrintWriter(socket.getOutputStream(), true);
             System.out.println("Connected to " + servername + ":" + port);
             doSomething();
         } catch (Exception e) {
@@ -64,17 +64,25 @@ public class Client {
         while (true) {
             System.out.println("Enter a path: ");
             String path = userInput.nextLine();
-            System.out.println("Path: " + path);
 
             getResource(path);
 
             String response = in.nextLine();
             if (response.startsWith("200")) {
-                String content = response.substring(4);
+                String content = "";
+                while (in.hasNextLine()) {
+                    String line = in.nextLine();
+                    if (line.equals("END")) {
+                        break;
+                    }
+                    content += line + "\n";
+                }
                 System.out.println("Content: " + content);
 //                b.displayContent(content);
             } else if (response.startsWith("404")) {
-                b.displayContent("404 Not Found");
+//                b.displayContent("404 Not Found");
+            } else if (response.startsWith("500")) {
+//                b.displayContent("500 Internal Server Error");
             }
         }
     }

@@ -21,7 +21,10 @@ public class ServerWorker implements Runnable {
 
     @Override
     public void run() {
+        System.out.println("Client connected to worker");
         doSomething();
+
+        System.out.println("Closing connections");
 
         closeConnections();
 
@@ -41,7 +44,6 @@ public class ServerWorker implements Runnable {
     public void doSomething() {
         while(in.hasNextLine()) {
             String request = in.nextLine();
-
             if (request.startsWith("GET")) {
                 String path = request.substring(4);
                 System.out.println("GET request for " + path);
@@ -54,14 +56,15 @@ public class ServerWorker implements Runnable {
                     response = "200\n";
                     String line;
                     while ((line = br.readLine()) != null) {
-                        response += line;
+                        response += line + "\n";
                     }
+                    response += "END";
                 } catch (FileNotFoundException e) {
                     response = "404\n";
-                    e.printStackTrace();
+                    System.out.println("File not found: " + path);
                 } catch (IOException e) {
                     response = "500\n";
-                    e.printStackTrace();
+                    System.out.println("Error reading file: " + path);
                 } finally {
                     out.println(response);
                 }
