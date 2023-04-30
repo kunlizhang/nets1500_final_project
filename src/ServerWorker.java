@@ -21,14 +21,8 @@ public class ServerWorker implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Client connected to worker");
         doSomething();
-
-        System.out.println("Closing connections");
-
         closeConnections();
-
-        System.out.println("Client disconnected");
     }
 
     private void closeConnections() {

@@ -1,8 +1,11 @@
 import javax.swing.*;
+import java.io.InputStream;
 
 public class Browser {
     private JFrame frame;
     private Client client;
+
+    private InputStream in;
 
     /**
      * The GUI browser for each client.
@@ -16,6 +19,8 @@ public class Browser {
         JButton button = new JButton("Press");
         frame.getContentPane().add(button); // Adds Button to content pane of frame
         frame.setVisible(true);
+
+        this.client = client;
     }
 
     public void displayContent(String content) {
