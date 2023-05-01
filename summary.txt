@@ -1,0 +1,21 @@
+Modelin' the Internet - Kunli Zhang, Daniel Xue
+
+Simple model of the Internet emulating DNS resolution and web requests. Our project implements physical networks as well as information networks.
+
+For information networks, we are emulating the structure of DNS and implemented both recurisve and iterative IP resolutions given configuration files in a similar structure to DNS records.
+
+For physical networks, we are emulating the structure of the Internet and implemented a simple routing algorithm that can route packets from one node to another. We also implemented a simple web server that can serve static files and a simple web cliet that can request files from the server.
+
+Kunli made the Browser, Server, Server Worker, and Client classes, and Daniel made the DNSServer and Lookup classes.
+
+To test our project, you can do the following:
+
+1. Run startDNS.sh to start the DNS server
+2. Run Server.java to start a web server. You can start multiple instances to simulate having multiple server.
+3. Run Browser.java to start a client browser.
+
+To test making a new server, you can do the following:
+1. Add a new server to the config file in the appropriate location for the DNS server to read. (Domain, IP:port).
+2. Start a new Server.java instance with the same IP:port as the config file, and give it the root folder directory (in terms of the project directory) as the second argument.
+
+Currently, our project can only display text files.
