@@ -3,3 +3,4 @@ seas.upenn.edu 127.0.0.1:5311
 sas.upenn.edu 127.0.0.1:5312
 wharton.upenn.edu 127.0.0.1:5313
 nursing.upenn.edu 127.0.0.1:5314
+nets1500.upenn.edu 127.0.0.1:5315

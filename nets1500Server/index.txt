@@ -1,0 +1,33 @@
+Course Logistics and Enrollment
+Discussion Forum: Please see Ed for details and additional logistical elements that are subject to change. Registration for Ed is automatic via Canvas integration, please ensure you log in to Ed via the Ed Discussion tab if you are having issues accessing the forum. For further issues, contact the instructor. Ed is also your place to ask questions asynchronously to course staff and for the benefit of your peers.
+
+Video Recordings: Video recordings of lectures and recitations via the Class Recordings tab through Panopto. In-Person lecture recordings will also be available there, however there is no assurance on the quality or the availability of a recording for a given lecture - you are strongly recommended to attend lecture in person at TOWNE 100 as all material provided or shown in lecture is examinable.
+
+Syllabi and Readings: For topics outline, readings, and additional content shown in class, see the Syllabus tab or by clicking here.
+
+Computer Infrastructure: This course uses JetBrains IntelliJ IDEA as the official IDE. While you are permitted to use any IDE, your OH support will be stronger using IntelliJ. As a student, you can attain IntelliJ IDEA Ultimate for free via the JetBrains Student License here Links to an external site.. This course uses Java 8; proficiency in Java at the level of CIS 1100 is required.
+
+Assignment Infrastructure: This course will use Canvas and Gradescope. Details for accessing relevant aspects will be covered in lecture.
+
+Course Textbook
+David Easley and Jon Kleinberg - Networks, Crowds, and Markets: Reasoning About a Highly Connected World
+
+Free Access: http://www.cs.cornell.edu/home/kleinber/networks-book/ Links to an external site.
+
+
+
+Grades
+Letter Grades: The “guideline” weightage for the final grade are: 60% Assignments, 20% Midterm Exam, 20% Final Exam. Cutoffs will be determined before extra credit points are tabulated; you are not indirectly penalized for not completing extra credit.
+
+Homework Overview (subject to change): There will be 5 homework assignments. Homework 1 and 3 will be coding assignments, Homework 2 and 4 are experimentation assignments. Homework 5 includes a project. Note that most assignments are due at noon, rather than midnight. Assignments are timed typically biweekly. The project for HW5 can be optionally completed in groups (details given at HW5 release)
+
+Exam Timings: The midterm exam will be administered during class time. The midterm exam date will be announced later in the semester. The final exam date and time will be during the official Final Exam period and are governed by the University Registrar.
+
+
+
+Homework Policy
+Late Assignments: You can submit an assignment up to one week late for 80% credit, unless otherwise specified.
+
+Regrade Requests: Please submit regrade requests within 1 week of assignment or exam grades being published. Instructions for regrade requests will be provided during lecture upon the release of the first grade.
+
+Academic Integrity: This class is governed by the Code of Academic Integrity of the University of Pennsylvania: https://catalog.upenn.edu/pennbook/code-of-academic-integrity/.

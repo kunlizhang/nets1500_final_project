@@ -15,7 +15,7 @@ public class Browser {
         // Prepare frame
         frame = new JFrame("Browser: " + name);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400,400);
+        frame.setSize(500,500);
 
         // Prepare search bar
         JLabel searchLabel = new JLabel("Search: ");
@@ -23,28 +23,35 @@ public class Browser {
         frame.getContentPane().add(searchLabel);
 
         searchbar = new JTextField();
-        searchbar.setBounds(65, 10, 200, 20);
+        searchbar.setBounds(65, 10, 300, 20);
         frame.getContentPane().add(searchbar);
         searchbar.requestFocus();
 
         // Prepare search button
         searchButton = new JButton("Search");
-        searchButton.setBounds(270, 10, 100, 20);
+        searchButton.setBounds(370, 10, 100, 20);
         searchButton.addActionListener(e -> {
             String path = searchbar.getText();
             String domain = path.split("/")[0];
-            client.connect(domain);
-
-            String resourcePath = path.substring(domain.length());
-            String resource = client.getResource(resourcePath);
-            textArea.setText(resource);
+            if (!client.connect(domain)) {
+                textArea.setText("Could not find " + domain);
+            } else {
+                String resourcePath = path.substring(domain.length());
+                String resource = client.getResource(resourcePath);
+                textArea.setText(resource);
+            }
+            client.closeConnections();
         });
         frame.getContentPane().add(searchButton);
 
         // Prepare text area
         textArea = new JTextArea();
-        textArea.setBounds(10, 40, 380, 310);
-        frame.getContentPane().add(textArea);
+        textArea.setBounds(10, 40, 480, 410);
+        textArea.setEditable(false);
+        JScrollPane scroll = new JScrollPane (textArea,
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scroll.setBounds(10, 40, 480, 410);
+        frame.getContentPane().add(scroll);
 
         frame.setLayout(null);
         frame.setVisible(true);
@@ -55,5 +62,4 @@ public class Browser {
     public static void main(String[] args) {
         new Browser("Test");
     }
-
 }

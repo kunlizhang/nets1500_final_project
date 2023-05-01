@@ -5,6 +5,7 @@ public class Server {
     private ServerSocket socket;
     private Socket client;
     private String rootPath;
+    private int numClients;
 
     /**
      * The server for the web browser.
@@ -12,6 +13,17 @@ public class Server {
      * @param rootPath  The root path of the server containing the files.
      */
     public Server(int port, String rootPath) {
+        this(port, rootPath, 300);
+    }
+
+    /**
+     * The server for the web browser.
+     * @param port      The port to be hosted on.
+     * @param rootPath  The root path of the server containing the files.
+     * @param numClients    The number of clients to be handled.
+     */
+    public Server(int port, String rootPath, int numClients) {
+        this.numClients = numClients;
         try {
             socket = new ServerSocket(port);
             this.rootPath = rootPath;
@@ -25,9 +37,12 @@ public class Server {
         }
     }
 
+    /**
+     * Waits for connections from clients. Creates a new thread for each client.
+     */
     private void waitForConnections() {
         int count = 0;
-        while (count < 300) {
+        while (count < numClients) {
             try {
                 client = socket.accept();
                 System.out.println("Client connected");
@@ -41,6 +56,9 @@ public class Server {
         }
     }
 
+    /**
+     * Closes the connections.
+     */
     private void closeConnections() {
         try {
             socket.close();
@@ -52,6 +70,9 @@ public class Server {
 
     public static void main(String[] args) {
         // Example for sample.com
-        new Server(8100, "exampleServer");
+//        new Server(8100, "exampleServer");
+
+        // Example for nets1500.upenn.edu
+        new Server(5315, "nets1500server");
     }
 }

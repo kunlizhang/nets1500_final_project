@@ -1,0 +1,12 @@
+This assignment was locked Feb 28 at 12pm.
+Please see the following files:
+
+hw2.pdf Download hw2.pdf
+
+SchellingSimulator.java Download SchellingSimulator.java
+
+SchellingVisualizer.java Download SchellingVisualizer.java
+
+
+
+Submission Instructions: Please submit via Gradescope with a PDF or images. Gradescope will request you to select pages - please do so to help TAs while grading. (You may also reselect pages past the deadline without incurring the late penalty)

@@ -30,12 +30,14 @@ public class Client {
     /**
      * Connects to the server to send requests.
      * @param addr The address of the server.
+     * @return 1 if successful, 0 if not.
      */
-    public void connect(String addr) {
-        InetSocketAddress socketAddress = l.recLookup(addr);
-        String servername = socketAddress.getHostName();
-        int port = socketAddress.getPort();
+    public boolean connect(String addr) {
         try {
+            InetSocketAddress socketAddress = l.recLookup(addr);
+            String servername = socketAddress.getHostName();
+            int port = socketAddress.getPort();
+
             socket = new Socket(servername, port);
             in = new Scanner(socket.getInputStream());
             out = new PrintWriter(socket.getOutputStream(), true);
@@ -45,8 +47,13 @@ public class Client {
                 doSomething();
                 closeConnections();
             }
+            return true;
+        } catch (NullPointerException e) {
+            System.out.println("Could not find " + addr);
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -105,6 +112,10 @@ public class Client {
         }
     }
 
+    /**
+     * Loop that listens to the system input stream when using the command line interface
+     * version of the class.
+     */
     private void doSomething() {
         userInput = new Scanner(System.in); // To change to some other input
 

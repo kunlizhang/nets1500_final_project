@@ -8,6 +8,11 @@ public class ServerWorker implements Runnable {
     private Socket client;
     private String rootPath;
 
+    /**
+     * Creates a server worker. This is a thread that handles a single client.
+     * @param client
+     * @param rootPath
+     */
     public ServerWorker(Socket client, String rootPath) {
         try {
             this.client = client;
@@ -41,7 +46,7 @@ public class ServerWorker implements Runnable {
             if (request.startsWith("GET")) {
                 String path = request.substring(4);
                 System.out.println("GET request for " + path);
-                if (path.equals("/")) {
+                if (path.equals("/") || path.equals("")) {
                     path = "/index.txt";
                 }
                 String response = "";
