@@ -2,7 +2,7 @@ Modelin' the Internet - Kunli Zhang, Daniel Xue
 
 Simple model of the Internet emulating DNS resolution and web requests. Our project implements physical networks as well as information networks.
 
-For information networks, we are emulating the structure of DNS and implemented both recurisve and iterative IP resolutions given configuration files in a similar structure to DNS records.
+For information networks, we are emulating the structure of DNS and implemented both recursive and iterative IP resolutions given configuration files in a similar structure to DNS records.
 
 For physical networks, we are emulating the structure of the Internet and implemented a simple routing algorithm that can route packets from one node to another. We also implemented a simple web server that can serve static files and a simple web cliet that can request files from the server.
 
@@ -10,9 +10,9 @@ Kunli made the Browser, Server, Server Worker, and Client classes, and Daniel ma
 
 To test our project, you can do the following:
 
-1. Run startDNS.sh to start the DNS server
-2. Run Server.java to start a web server. You can start multiple instances to simulate having multiple server.
-3. Run Browser.java to start a client browser.
+1. Run startDNS.sh to start the DNS server (./startDNS.sh)
+1. Run startServer.sh to start the DNS server (./startServer.sh). This starts our two sample servers
+3. Run main in Browser.java to start a client browser.
 
 To test making a new server, you can do the following:
 1. Add a new server to the config file in the appropriate location for the DNS server to read. (Domain, IP:port). This is located in the configs folder.
@@ -20,7 +20,7 @@ To test making a new server, you can do the following:
 
 Currently, our project can only display text files. We have included two sample servers which you can use to initially test our project.
 
-www.sample.com, port 8080, root directory: exampleServer.
+www.sample.com, port 8100, root directory: exampleServer.
 
 www.nets1500.upenn.edu, port 5315, root directory: nets1500server
 
