@@ -75,7 +75,7 @@ public class Server {
     public static void main(String[] args) {
         // Example for sample.com
         int port = 5315;
-        String rootPath = "nest1500server";
+        String rootPath = "nets1500server";
 //        new Server(8100, "exampleServer");
         if (args.length >= 2) {
             port = Integer.parseInt(args[0]);
