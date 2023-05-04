@@ -11,17 +11,21 @@ Kunli made the Browser, Server, Server Worker, and Client classes, and Daniel ma
 To test our project, you can do the following:
 
 1. Run startDNS.sh to start the DNS server (./startDNS.sh)
-1. Run startServer.sh to start the DNS server (./startServer.sh). This starts our two sample servers
+2. Run startServer.sh to start the DNS server (./startServer.sh). This starts our two sample servers. Please note that you cannot add httos:// in front of a URL (it can either start with www. or not start with anything (e.g. nets1500.upenn.edu)).
+
 3. Run main in Browser.java to start a client browser.
 
 To test making a new server, you can do the following:
 1. Add a new server to the config file in the appropriate location for the DNS server to read. (Domain, IP:port). This is located in the configs folder.
-2. Start a new Server.java instance with the same IP:port as the config file, and give it the root folder directory (in terms of the project directory) as the second argument.
+2. Start a new WebServer.java instance with the same IP:port as the config file, and give it the root folder directory (in terms of the project directory) as the second argument.
+3. Alternatively, you can add a command to the bash script file to start the server, with the format
+
+java WebServer [PORT NUMBER] [PATH TO SERVER] &
 
 Currently, our project can only display text files. We have included two sample servers which you can use to initially test our project.
 
-www.sample.com, port 8100, root directory: exampleServer.
+www.sample.com, port 8100, root directory: servers/exampleServer.
 
-www.nets1500.upenn.edu, port 5315, root directory: nets1500server
+www.nets1500.upenn.edu, port 5315, root directory: servers/nets1500server
 
 

@@ -74,11 +74,11 @@ public class WebServer {
      */
     public static void main(String[] args) {
         // Example for sample.com
-//        new WebServer(8100, "exampleServer");
+//        new WebServer(8100, "servers/exampleServer");
         int port = Integer.parseInt(args[0]);
         String rootPath = args[1];
         // Example for nets1500.upenn.edu
-//        new WebServer(5315, "nets1500server");
+//        new WebServer(5315, "servers/nets1500server");
         new WebServer(port, rootPath);
     }
 }
