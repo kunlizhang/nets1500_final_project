@@ -15,7 +15,13 @@ To test our project, you can do the following:
 3. Run Browser.java to start a client browser.
 
 To test making a new server, you can do the following:
-1. Add a new server to the config file in the appropriate location for the DNS server to read. (Domain, IP:port).
+1. Add a new server to the config file in the appropriate location for the DNS server to read. (Domain, IP:port). This is located in the configs folder.
 2. Start a new Server.java instance with the same IP:port as the config file, and give it the root folder directory (in terms of the project directory) as the second argument.
 
-Currently, our project can only display text files.
+Currently, our project can only display text files. We have included two sample servers which you can use to initially test our project.
+
+www.sample.com, port 8080, root directory: exampleServer.
+
+www.nets1500.upenn.edu, port 5315, root directory: nets1500server
+
+
