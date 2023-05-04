@@ -68,11 +68,17 @@ public class Server {
         }
     }
 
+    /**
+     * Starts the server.
+     * @param args [port, rootPath]
+     */
     public static void main(String[] args) {
         // Example for sample.com
 //        new Server(8100, "exampleServer");
-
+        int port = Integer.parseInt(args[0]);
+        String rootPath = args[1];
         // Example for nets1500.upenn.edu
-        new Server(5315, "nets1500server");
+//        new Server(5315, "nets1500server");
+        new Server(port, rootPath);
     }
 }
